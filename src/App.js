@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 
-class App extends Component {
-  state = {
-    songs: []
-  };
-  async componentDidMount(){
-      try {
-        fetch('http://127.0.0.1:8000/')
-        .then(res => res.json())
-        .then ( (data) => {
-          this.setState({songs:data})
-        })
-      } catch(e){
-        console.log(e);
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+
+// gql gets the plain string that contains the graphql code
+const FEED_QUERY = gql`
+    {
+      songs {
+        id
+        album
+        artist
+        songName
       }
     }
-  render(){
+  `;
+
+class App extends Component {
+  render() {
+    // if this return doesn't exist, you will get instance.render error
     return (
-      <div className="App">
-        {this.state.songs.map( (song) =>(
-          <h3> {song.album}, {song.artist}, {song.song_name} </h3>
-        ))}
-      </div>
-    );
+      <Query query={FEED_QUERY}>
+        {({loading, error, data}) => {
+          if (loading) return <div>Loading</div>
+          if (error) return <div>Error</div>
+
+          // should use map to get the whole list printed
+          return(
+            <div>
+              {data.songs.map (song =>(
+                <h1 key={song.id}> Album:{song.album}, Artist:{song.artist}, Name:{song.songName} </h1>
+              ))}
+            </div>
+          )
+        }}
+      </Query>
+    )
   }
 }
 
