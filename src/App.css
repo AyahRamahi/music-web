@@ -31,3 +31,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+html, body {
+  width: 100%;
+  margin:0;
+}
+.artists {
+  background: linear-gradient(0deg, rgba(2,0,36,1) 2%, rgba(246,0,65,1) 96%, rgba(202,41,23,1) 100%);
+}
+.hitit {
+  width: 10em;
+}
+.thumbnail > img {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  margin-bottom: 40px;
+}
+.page-footer{
+  background-color:#1B191A;
+}
