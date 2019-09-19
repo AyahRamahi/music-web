@@ -7,38 +7,34 @@ import {
   BrowserRouter
 } from "react-router-dom";
 
-import Songs from './Songs.js';
 import './App.css';
 
-class Albums extends Component {
+class Songs extends Component {
   render() {
     const FEED_QUERY = gql`
       {
-        albums (artist: "${this.props.match.params.artist}")
+        song (album: "${this.props.match.params.album}")
       }
     `;
     return (
       <div>
-        <h3>Artist: {this.props.match.params.artist}</h3>
+        <h3>Album: {this.props.match.params.album}</h3>
         <Query query={FEED_QUERY}>
           {({loading, error, data}) => {
             if (loading) return <div> Loading... </div>
             if (error) return <div> Error! </div>
-
+            
             return (
-              <BrowserRouter>
-                <div className="content">
-                  {data.albums.map (album => (
-                    <NavLink replace exact to={album}> {album} </NavLink>
-                  ))}
-                  <Route path="/:album" component={Songs} />
-                </div>
-              </BrowserRouter>
-            )
+              <div className="content">
+                {data.song.map (songName => (
+                  <h4> {songName} </h4>
+                ))}
+              </div>
+            );
           }}
         </Query>
       </div>
     );
   }
 }
-export default Albums;
+export default Songs;

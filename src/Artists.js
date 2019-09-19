@@ -24,7 +24,7 @@ class Artists extends Component {
         {({loading, error, data}) => {
           if (loading) return <div> Loading </div>;
           if (error) return <div> Error </div>;
-          console.log(data)
+          
           return (
             <BrowserRouter>
               <div className="content">
