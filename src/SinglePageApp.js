@@ -23,7 +23,9 @@ class SinglePageApp extends Component {
               <h1 className="mb-0"> AMP UP </h1> <h1 className="mt-0">THOSE DBS</h1>
               <h5> MAKE MUSIC ON THE GO</h5>
               <br/>
-              <img src={HitIt} className="img-fluid hitit float-left" />
+              <NavLink exact to="/artists">
+                <img src={HitIt} className="img-fluid hitit float-left" />
+              </NavLink>
             </div>
 
             <div className="col-md-8 pl-auto">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -11,6 +10,7 @@ import {
 
 import SinglePageApp from './SinglePageApp.js';
 import NavigationBar from './NavigationBar.js';
+import Artists from './Artists.js';
 import './App.css';
 
 
@@ -48,7 +48,6 @@ const FEED_QUERY = gql`
   */
 
 
-
 class App extends Component {
   render() {
     // if this return doesn't exist, you will get instance.render error
@@ -57,6 +56,7 @@ class App extends Component {
         <div className="content">
           <NavigationBar />
           <Route exact path="/" component={SinglePageApp} />
+          <Route exact path="/artists" component={Artists} />
         </div>
       </BrowserRouter>
     );
