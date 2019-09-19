@@ -12,9 +12,7 @@ import './App.css';
 
 const FEED_QUERY = gql`
   {
-    songs {
-      artist
-    }
+    artists
   }
 `;
 
@@ -26,12 +24,12 @@ class Artists extends Component {
         {({loading, error, data}) => {
           if (loading) return <div> Loading </div>;
           if (error) return <div> Error </div>;
-
+          console.log(data)
           return (
             <BrowserRouter>
               <div className="content">
-                {data.songs.map (song=> (
-                  <NavLink replace exact to={song.artist}> {song.artist} </NavLink>
+                {data.artists.map (artist => (
+                  <NavLink replace exact to={artist}> {artist} </NavLink>
                 ))}
                 <Route path="/:artist" component={Albums}/>
               </div>
