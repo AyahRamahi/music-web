@@ -53,3 +53,11 @@ html, body {
 .page-footer{
   background-color:#1B191A;
 }
+
+
+.red-background {
+  background-color: rgba(246,0,65,1) !important;
+}
+.min-hi {
+  min-height: 88vh;
+}

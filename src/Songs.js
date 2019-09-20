@@ -16,19 +16,23 @@ class Songs extends Component {
         song (album: "${this.props.match.params.album}")
       }
     `;
+    // <h3>Album: {this.props.match.params.album}</h3>
     return (
       <div>
-        <h3>Album: {this.props.match.params.album}</h3>
+
         <Query query={FEED_QUERY}>
           {({loading, error, data}) => {
             if (loading) return <div> Loading... </div>
             if (error) return <div> Error! </div>
-            
+
             return (
-              <div className="content">
-                {data.song.map (songName => (
-                  <h4> {songName} </h4>
-                ))}
+              <div className="content col">
+                <ul className="list-group">
+                  <li className="list-group-item list-subject mb-4 red-background"> Songs </li>
+                  {data.song.map (songName => (
+                    <li className="list-group-item list-group-item-action mb-2"> {songName} </li>
+                  ))}
+                </ul>
               </div>
             );
           }}
