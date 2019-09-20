@@ -12,6 +12,12 @@ import {
 import './App.css';
 import HitIt from './assets/hitit.png';
 import White from './assets/white.png';
+import ImagineDragons from './assets/imagine_dragons.jpg';
+import Kodaline from './assets/kodaline.jpg';
+import RaufFaik from './assets/rauf_faik.jpg';
+import AlecBenjamin from './assets/alec_benjamin.jpg';
+import Daughter from './assets/daughter.jpg';
+import MaitreGims from './assets/maitre_gims.jpg';
 
 class SinglePageApp extends Component {
   render() {
@@ -30,12 +36,12 @@ class SinglePageApp extends Component {
 
             <div className="col-md-8 pl-auto">
               <div className="thumbnail d-flex justify-content-between flex-wrap">
-                <img src="..." alt="..."/>
-                <img src="..." alt="..."/>
-                <img src="..." alt="..."/>
-                <img src="..." alt="..."/>
-                <img src="..." alt="..."/>
-                <img src="..." alt="..."/>
+                <img src={ImagineDragons} alt="..."/>
+                <img src={Kodaline} alt="..."/>
+                <img src={RaufFaik} alt="..."/>
+                <img src={AlecBenjamin} alt="..."/>
+                <img src={Daughter} alt="..."/>
+                <img src={MaitreGims} alt="..."/>
               </div>
             </div>
           </div>
